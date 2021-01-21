@@ -32,6 +32,18 @@ public:
     {
     }
 
+
+    //------------------------------------------------------------------------
+    // Heap(Comparable **array, int count) - constuctor
+    // Preconditions:
+    //
+    // Postconditions:
+    //
+
+    Heap(Comparable **array, int count)
+    {
+    }
+
     //------------------------------------------------------------------------
     // Heap(const Heap &org) - copy constuctor
     // Preconditions:
@@ -68,6 +80,7 @@ public:
     //					and satisfies the heap order property
     // Postconditions: inserts the item into the queue, such that a new
     //					heap is created containing the union of the elements
+
     void insert(Comparable *c)
     {
         if (c == nullptr)
@@ -157,8 +170,6 @@ public:
     }
 
 private:
-
-
     //------------------------------------------------------------------------
     // percolateDown - used to restore the heap order property after deleteMin
     // Preconditions: Both subtrees of the root are heaps

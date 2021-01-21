@@ -24,16 +24,22 @@ private:
         Node *left;  // Pointer to left child
         Node *right; // Pointer to right child
         Node() : left(nullptr), right(nullptr) {}
-        Node(char ch, int f) : c(ch), freq(f), left(nullptr), right(nullptr) {} // Constructor to initialize node
+        Node(char ch, int f) : c(ch), freq(f), left(nullptr), right(nullptr) {}       // Constructor to initialize node
         Node(char ch, int f, Node *l, Node *r) : c(ch), freq(f), left(l), right(r) {} // Constructor to initialize node
     };
 
     Node *root; // Root Node
 
+    void makeEmptyPrivate(Node *&node);      // Helper function to clear SearchTree - post order traversal
+    Node *copyPrivate(const Node *copyNode); // Helper function for copy constuctor - Deep copy
+
 public:
-    HuffmanTree();                                  // constructor
-    HuffmanTree(const HuffmanTree &org);            // copy constructor
-    ~HuffmanTree();                                 // destructor
+    HuffmanTree();                       // constructor
+    HuffmanTree(const HuffmanTree &org); // copy constructor
+    ~HuffmanTree();                      // destructor
+
+    void makeEmpty(); // Removes and deallocates all of the data from the tree (Tree still there)
+
     HuffmanTree &operator=(const HuffmanTree &rhs); // assignment operator
     bool operator<(const HuffmanTree &rhs) const;   //less than operator to store huffmantree in heap
     //void TraverseHuffmanTree();
