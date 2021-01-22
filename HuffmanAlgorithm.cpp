@@ -21,43 +21,32 @@ HuffmanAlgorithm::HuffmanAlgorithm(int (&counts)[NUM_LETTERS])
         HuffmanTree *newTree = new HuffmanTree(char('a' + i), counts[i]);
         mHeap.insert(newTree);
         cout << 'a' + i << "=" <<newTree->getChar() << "|" << counts[i] << "=" << newTree->getFreq() << endl;
-        
+
         newTree = nullptr;
         delete newTree;
     }
 
     cout << endl;
     cout << "MIN IN ORDER " << endl;
-    const HuffmanTree *min1;
-    const HuffmanTree *min2;
-    HuffmanTree *del;
+
+
     while (!mHeap.isEmpty())
     {
-        min1 = mHeap.findMin();
+        const HuffmanTree *min1 = mHeap.findMin();
         cout << min1->getChar() << " " << min1->getFreq() << endl;
 
-        del = mHeap.deleteMin();
+        HuffmanTree *del = mHeap.deleteMin();
         delete del;
         del = nullptr;
     
-
-        min2 = mHeap.findMin();
+        const HuffmanTree *min2 = mHeap.findMin();
         cout << min2->getChar() << " " << min2->getFreq() << endl;
         min1 = mHeap.findMin();
 
         del = mHeap.deleteMin();
         delete del;
         del = nullptr;
-        
-    
 
-        // if (min1 < min2)
-        // {
-        //     HuffmanTree *pNode = new HuffmanTree(min1->getChar(),min1->getFreq() + min2->getFreq());
-
-        //     // pNode->left = min1;
-        //     // pNode->right = min2;
-        // }
     }
 }
 
