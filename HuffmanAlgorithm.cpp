@@ -22,8 +22,8 @@ HuffmanAlgorithm::HuffmanAlgorithm(int (&counts)[NUM_LETTERS])
         mHeap.insert(newTree);
         cout << 'a' + i << "=" <<newTree->getChar() << "|" << counts[i] << "=" << newTree->getFreq() << endl;
 
-        newTree = nullptr;
-        delete newTree;
+        // newTree = nullptr;
+        // delete newTree;
     }
 
     cout << endl;
@@ -33,19 +33,21 @@ HuffmanAlgorithm::HuffmanAlgorithm(int (&counts)[NUM_LETTERS])
     while (!mHeap.isEmpty())
     {
         const HuffmanTree *min1 = mHeap.findMin();
-        cout << min1->getChar() << " " << min1->getFreq() << endl;
+        HuffmanTree copyMin1(*min1);
 
-        HuffmanTree *del = mHeap.deleteMin();
-        delete del;
-        del = nullptr;
+        HuffmanTree *delMin1 = mHeap.deleteMin();
+        delete delMin1;
+        delMin1 = nullptr;
     
         const HuffmanTree *min2 = mHeap.findMin();
-        cout << min2->getChar() << " " << min2->getFreq() << endl;
-        min1 = mHeap.findMin();
+        HuffmanTree copyMin2(*min2);
 
-        del = mHeap.deleteMin();
-        delete del;
-        del = nullptr;
+        HuffmanTree *delMin2 = mHeap.deleteMin();
+        delete delMin2;
+        delMin2 = nullptr;
+
+        cout << copyMin1.getChar() << " " << copyMin1.getFreq() << endl;
+        cout << copyMin2.getChar() << " " << copyMin2.getFreq()<< endl;
 
     }
 }

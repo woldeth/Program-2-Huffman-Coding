@@ -17,22 +17,28 @@ HuffmanTree::HuffmanTree(char ch, int f)
 {
     // create new dynamically allocated node
     Node *tempNode = new Node(ch, f);
-    
-    root = tempNode;    // set temp node = to root 
+
+    root = tempNode; // set temp node = to root
 
     // delete tempNode
     tempNode = nullptr;
     delete tempNode;
- 
 }
 
-// HuffmanTree::HuffmanTree(const HuffmanTree &org)
-// {
-//     this = *copyPrivate(org);
-// }
+HuffmanTree::HuffmanTree(const HuffmanTree &org)
+{
+    Node *tempNode = new Node(org.root->c, org.root->freq);
+
+    root = tempNode; // set temp node = to root
+
+    tempNode = nullptr;
+    delete tempNode;
+}
 
 HuffmanTree::~HuffmanTree()
 {
+    delete root;
+    root = nullptr;
 }
 
 bool HuffmanTree::operator<(const HuffmanTree &rhs) const
