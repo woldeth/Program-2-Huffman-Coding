@@ -15,6 +15,7 @@
 
 using namespace std;
 
+//#define NUM_LETTERS 26
 const int NUM_LETTERS = 26;
 
 class HuffmanAlgorithm

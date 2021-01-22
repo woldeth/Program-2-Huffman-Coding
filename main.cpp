@@ -29,7 +29,7 @@ int main() {
 
 	// Construct Huffman codes and display table
 	HuffmanAlgorithm code(counts);                      //passed in array to huffman alogorithm
-	// cout << code << endl;
+	//cout << code << endl;
 
 	// // Simple test of encoding words
 	// cout << "test:  " << code.getWord("test") << endl;                      // get a word

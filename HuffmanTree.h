@@ -28,10 +28,17 @@ class HuffmanTree
 {
 
 private:
-    char c;
-    int freq;
-    HuffmanTree *left;  // Pointer to left child
-    HuffmanTree *right; // Pointer to right child
+    struct Node
+    {
+        char c;
+        int freq;
+        Node *left;  // Pointer to left child
+        Node *right; // Pointer to right child
+        Node(char ch, int f) : c(ch), freq(f), left(nullptr), right(nullptr) {}
+    };
+
+    Node *root;
+
 public:
     HuffmanTree(); // constructor
     HuffmanTree(char ch, int f);
@@ -39,7 +46,9 @@ public:
     ~HuffmanTree();                                 // destructor
     HuffmanTree &operator=(const HuffmanTree &rhs); // assignment operator
     bool operator<(const HuffmanTree &rhs) const;   //less than operator to store huffmantree in heap
-    const char getChar() const;
-    const int getFreq() const;
+    char getChar() const;
+    int getFreq() const;
+    void setChar(char ch);
+    void setFreq(int f);
     //void TraverseHuffmanTree();
 };

@@ -11,17 +11,25 @@
 #include "HuffmanTree.h"
 #include <iostream>
 
-HuffmanTree::HuffmanTree()
-{
-}
+//HuffmanTree::HuffmanTree() : root(nullptr) {}
 
 HuffmanTree::HuffmanTree(char ch, int f)
 {
-    c = ch;
-    freq = f;
-    left = nullptr;
-    right = nullptr;
+    // create new dynamically allocated node
+    Node *tempNode = new Node(ch, f);
+    
+    root = tempNode;    // set temp node = to root 
+
+    // delete tempNode
+    tempNode = nullptr;
+    delete tempNode;
+ 
 }
+
+// HuffmanTree::HuffmanTree(const HuffmanTree &org)
+// {
+//     this = *copyPrivate(org);
+// }
 
 HuffmanTree::~HuffmanTree()
 {
@@ -29,13 +37,15 @@ HuffmanTree::~HuffmanTree()
 
 bool HuffmanTree::operator<(const HuffmanTree &rhs) const
 {
-    if (this->freq < rhs.freq)
+
+    if (root->freq < rhs.root->freq)
     {
         return true;
     }
-    else if (this->freq == rhs.freq)
+    else if (root->freq == rhs.root->freq)
     {
-        if(this->c < rhs.c){
+        if (root->c < rhs.root->c)
+        {
             return true;
         }
     }
@@ -43,11 +53,22 @@ bool HuffmanTree::operator<(const HuffmanTree &rhs) const
     return false;
 }
 
-const char HuffmanTree::getChar() const{
-    return c;
+char HuffmanTree::getChar() const
+{
+    return root->c;
 }
-const int HuffmanTree::getFreq()const{
-    return freq;
+int HuffmanTree::getFreq() const
+{
+    return root->freq;
+}
+
+void HuffmanTree::setChar(char ch)
+{
+    root->c = ch;
+}
+void HuffmanTree::setFreq(int f)
+{
+    root->freq = f;
 }
 
 // HuffmanTree &HuffmanTree::operator=(const HuffmanTree &rhs)
@@ -57,3 +78,26 @@ const int HuffmanTree::getFreq()const{
 //----------------------------------------------------------------------------//
 // ---------------------- PRIVATE HELPER FUNCTIONS ---------------------------//
 //----------------------------------------------------------------------------//
+
+// HuffmanTree *HuffmanTree::copyPrivate(const HuffmanTree copyNode)
+// {
+//     // node is empty return
+//     if (copyNode == nullptr)
+//     {
+//         return nullptr;
+//     }
+
+//     if (copyNode.left == nullptr && copyNode.right == nullptr)
+//     {
+//     }
+
+//     // Comparable *newItem = new Comparable(*copyNode->item);
+//     // Node *newNode = new Node(newItem);
+
+//     // newNode->count = copyNode->count; // copy primative data types
+
+//     // newNode->left = copyPrivate(copyNode->left);
+//     // newNode->right = copyPrivate(copyNode->right);
+
+//     return newNode;
+// }
