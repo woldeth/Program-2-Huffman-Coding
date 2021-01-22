@@ -45,12 +45,12 @@ HuffmanAlgorithm::HuffmanAlgorithm(int (&counts)[NUM_LETTERS])
         delete del;
         del = nullptr;
 
-        if (min1 < min2)
-        {
-            HuffmanTree *pNode = new HuffmanTree(min1->getChar(),min1->getFreq() + min2->getFreq());
+        // if (min1 < min2)
+        // {
+        //     HuffmanTree *pNode = new HuffmanTree(min1->getChar(),min1->getFreq() + min2->getFreq());
 
-            // pNode->left = min1;
-            // pNode->right = min2;
-        }
+        //     // pNode->left = min1;
+        //     // pNode->right = min2;
+        // }
     }
 }
