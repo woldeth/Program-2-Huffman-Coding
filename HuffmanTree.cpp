@@ -11,63 +11,49 @@
 #include "HuffmanTree.h"
 #include <iostream>
 
-HuffmanTree::HuffmanTree() : root(nullptr)
+HuffmanTree::HuffmanTree()
 {
+}
+
+HuffmanTree::HuffmanTree(char ch, int f)
+{
+    c = ch;
+    freq = f;
+    left = nullptr;
+    right = nullptr;
 }
 
 HuffmanTree::~HuffmanTree()
 {
-    makeEmpty();
 }
 
-void HuffmanTree::makeEmpty()
+bool HuffmanTree::operator<(const HuffmanTree &rhs) const
 {
-    makeEmptyPrivate(root);
-}
-
-HuffmanTree &HuffmanTree::operator=(const HuffmanTree &rhs)
-{
-    // checks to see if lhs and rhs is the same
-    if (this != &rhs)
+    if (this->freq < rhs.freq)
     {
-        this->makeEmpty();                  // clear lhs
-        this->root = copyPrivate(rhs.root); // make a deep copy of the search tree
+        return true;
+    }
+    else if (this->freq == rhs.freq)
+    {
+        if(this->c < rhs.c){
+            return true;
+        }
     }
 
-    return *this;
+    return false;
 }
+
+const char HuffmanTree::getChar() const{
+    return c;
+}
+const int HuffmanTree::getFreq()const{
+    return freq;
+}
+
+// HuffmanTree &HuffmanTree::operator=(const HuffmanTree &rhs)
+// {
+// }
 
 //----------------------------------------------------------------------------//
 // ---------------------- PRIVATE HELPER FUNCTIONS ---------------------------//
 //----------------------------------------------------------------------------//
-
-void HuffmanTree::makeEmptyPrivate(HuffmanTree::Node *&node)
-{
-    if (node == nullptr)
-    {
-        return;
-    }
-
-    makeEmptyPrivate(node->left);
-    makeEmptyPrivate(node->right);
-
-    delete node;
-    node = nullptr;
-}
-
-HuffmanTree::Node *HuffmanTree::copyPrivate(const HuffmanTree::Node *copyNode)
-{
-    // node is empty return
-    if (copyNode == nullptr)
-    {
-        return nullptr;
-    }
-
-    Node *newNode = new Node(copyNode->c, copyNode->freq);
-    //  MAY NEED TO DO ADDITON WORK HERE TO MAKE A DEEP COPY COME BACK! 
-     
-    newNode->left = copyPrivate(copyNode->left);
-    newNode->right = copyPrivate(copyNode->right);
-
-    return newNode;
-}

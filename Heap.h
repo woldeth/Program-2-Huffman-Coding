@@ -14,6 +14,7 @@
 
 #pragma once
 #include <vector>
+#include <iostream>
 using namespace std;
 
 template <typename Comparable>
@@ -168,6 +169,7 @@ public:
     {
         return numElements == 0;
     }
+
 
 private:
     //------------------------------------------------------------------------
