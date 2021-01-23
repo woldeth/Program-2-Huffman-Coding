@@ -43,6 +43,11 @@ HuffmanAlgorithm::HuffmanAlgorithm(int (&counts)[NUM_LETTERS])
 
         // inserts parent back into the heap 
         mHeap.insert(pTree);
+
+        leftTree = nullptr;
+        delete leftTree;
+        rightTree = nullptr;
+        delete rightTree;
     }
 
     // pulls the main tree out of heps
