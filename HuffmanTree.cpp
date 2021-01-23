@@ -59,7 +59,7 @@ HuffmanTree::Node *HuffmanTree::copyPrivate(const Node *copyNode)
 
 HuffmanTree::~HuffmanTree()
 {
-    //makeEmptyPrivate(root);
+    clearTreePrivate(root);
 }
 
 // void HuffmanTree::makeEmptyPrivate(Node *&node)
