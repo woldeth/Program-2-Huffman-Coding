@@ -53,7 +53,7 @@ public:
     HuffmanTree(const HuffmanTree &org); // copy constructor
     ~HuffmanTree();                      // destructor
 
-    //HuffmanTree &operator=(const HuffmanTree &rhs); // assignment operator
+    HuffmanTree &operator=(const HuffmanTree &rhs); // assignment operator
 
     bool operator<(const HuffmanTree &rhs) const; //less than operator to store huffmantree in heap
     char getChar() const;

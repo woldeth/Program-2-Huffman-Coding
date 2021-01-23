@@ -22,39 +22,42 @@ HuffmanAlgorithm::HuffmanAlgorithm(int (&counts)[NUM_LETTERS])
     {
         HuffmanTree *newTree = new HuffmanTree(char('a' + i), counts[i]);
         mHeap.insert(newTree);
-        //cout << 'a' + i << "=" << newTree->getChar() << "|" << counts[i] << "=" << newTree->getFreq() << endl;
+        cout << 'a' + i << "=" << newTree->getChar() << "|" << counts[i] << "=" << newTree->getFreq() << endl;
     }
 
+    //vector<HuffmanTree*> delTree[NUM_LETTERS * 2];
 
-    while (mHeap.size() > 1)
-    {
-        // grabs 2 mins from heap
-        HuffmanTree *leftTree = mHeap.deleteMin();
-        HuffmanTree *rightTree = mHeap.deleteMin();
+    //const HuffmanTree *leftTree;
+    //const HuffmanTree *rightTree;
+    // HuffmanTree *leftTree;
+    // HuffmanTree *rightTree;
+
+    // while (mHeap.size() > 1)
+    // {
+    //     // grabs 2 mins from heap
+    //     leftTree= mHeap.deleteMin();
+    //     rightTree = mHeap.deleteMin();
+
+    //     // cout << leftTree->getChar() << " " << leftTree->getFreq() << endl;
+    //     // cout << rightTree->getChar() << " " << rightTree->getFreq() << endl;
+
+    //     // get Frequency and char
+    //     int pFreq = leftTree->getFreq() + rightTree->getFreq();
+    //     char pC = leftTree->getChar();
+
+    //     // create parent tree with left and right children 
+    //     HuffmanTree *pTree = new HuffmanTree(pC, pFreq, leftTree, rightTree);
+
+    //     // inserts parent back into the heap 
+    //     mHeap.insert(pTree);
        
-        // cout << leftTree->getChar() << " " << leftTree->getFreq() << endl;
-        // cout << rightTree->getChar() << " " << rightTree->getFreq() << endl;
+    // }
 
-        // get Frequency and char
-        int pFreq = leftTree->getFreq() + rightTree->getFreq();
-        char pC = leftTree->getChar();
-
-        // create parent tree with left and right children 
-        HuffmanTree *pTree = new HuffmanTree(pC, pFreq, leftTree, rightTree);
-
-        // inserts parent back into the heap 
-        mHeap.insert(pTree);
-
-        // leftTree->clear();
-        // rightTree->clear();
-       
-    }
-
-    // pulls the main tree out of heps
-    HuffmanTree *pTree = mHeap.deleteMin();
-    cout << "DEBUG: Check pTree " << endl;
-    pTree->clear();
-    pTree = nullptr;
+    // // pulls the main tree out of heps
+    // HuffmanTree *pTree = mHeap.deleteMin();
+    // cout << "DEBUG: Check pTree " << endl;
+    // pTree->clear();
+    // pTree = nullptr;
 
    
 }
