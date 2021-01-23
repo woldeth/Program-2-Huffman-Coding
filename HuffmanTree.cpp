@@ -64,7 +64,6 @@ HuffmanTree::Node *HuffmanTree::copyPrivate(const Node *copyNode)
 HuffmanTree::~HuffmanTree()
 {
     clearTreePrivate(root);
-    //delete this;
 
 }
 
