@@ -42,13 +42,14 @@ private:
     //void makeEmptyPrivate(Node *&node);
 
     void clearTreePrivate(Node *&node);
+    Node *copyPrivate(const Node *copyNode);
 
     
 
 public:
     HuffmanTree(); // constructor
     HuffmanTree(char ch, int f);
-    HuffmanTree(char ch, int f, const HuffmanTree * const &leftTree, const HuffmanTree * const &rightTree);
+    HuffmanTree(char ch, int f, const HuffmanTree *leftTree, const HuffmanTree *rightTree);
     HuffmanTree(const HuffmanTree &org); // copy constructor
     ~HuffmanTree();                      // destructor
 
