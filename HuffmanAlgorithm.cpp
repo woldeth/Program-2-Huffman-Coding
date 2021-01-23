@@ -44,7 +44,6 @@ HuffmanAlgorithm::HuffmanAlgorithm(int (&counts)[NUM_LETTERS])
 
     // delete pTree;
     // pTree = nullptr;
-
     pTree->traverseHuffmanTree();
 
     cout << endl;

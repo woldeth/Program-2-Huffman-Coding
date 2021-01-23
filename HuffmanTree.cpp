@@ -141,17 +141,18 @@ void HuffmanTree::traversePrivate(Node *node, string &c, int &index)
     {
         c = c + "0";
         traversePrivate(node->left, c, index);
+        c.pop_back();
     }
 
-    if (root->right != nullptr)
+    if (node->right != nullptr)
     {
         c = c + "1";
         traversePrivate(node->right, c, index);
+        c.pop_back();
     }
     if (isLeaf(node))
     {
-        encode[index] = c;
-        c = "";
+        encode[index] = node->c + c; // remove letter once complete
         index = index + 1;
     }
 }
