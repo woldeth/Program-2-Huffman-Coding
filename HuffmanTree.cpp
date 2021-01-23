@@ -60,6 +60,7 @@ HuffmanTree::~HuffmanTree()
 {
     //clearTreePrivate(root);
     delete this;
+
 }
 
 bool HuffmanTree::operator<(const HuffmanTree &rhs) const
