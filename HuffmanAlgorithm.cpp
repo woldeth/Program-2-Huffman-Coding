@@ -45,11 +45,11 @@ HuffmanAlgorithm::HuffmanAlgorithm(int (&counts)[NUM_LETTERS])
 
         // create parent tree with left and right children      MEMORY LEAK HERE!!!!
         HuffmanTree *pTree = new HuffmanTree(pC, pFreq, leftTree, rightTree);
-        leftTree = nullptr;
-        rightTree = nullptr;
 
         // inserts parent back into the heap 
         mHeap.insert(pTree);
+
+        pTree = nullptr;
        
     }
           

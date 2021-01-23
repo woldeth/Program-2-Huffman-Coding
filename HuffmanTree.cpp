@@ -23,7 +23,7 @@ HuffmanTree::HuffmanTree(char ch, int f)
 }
 
 // used for parent Trees
-HuffmanTree::HuffmanTree(char ch, int f, const HuffmanTree *const &leftTree, const HuffmanTree *const &rightTree)
+HuffmanTree::HuffmanTree(char ch, int f,const HuffmanTree *leftTree,const HuffmanTree *rightTree)
 {
     Node *tempNode = new Node(ch, f);
     tempNode->left = leftTree->root;
