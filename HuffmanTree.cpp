@@ -11,34 +11,27 @@
 #include "HuffmanTree.h"
 #include <iostream>
 
-//HuffmanTree::HuffmanTree() : root(nullptr) {}
-
+// used for leaf Trees 
 HuffmanTree::HuffmanTree(char ch, int f)
 {
     // create new dynamically allocated node
     Node *tempNode = new Node(ch, f);
-
     root = tempNode; // set temp node = to root
-
-    // delete tempNode
-    tempNode = nullptr;
-    delete tempNode;
 }
 
-HuffmanTree::HuffmanTree(const HuffmanTree &org)
+// used for parent Trees
+HuffmanTree::HuffmanTree(char ch, int f, HuffmanTree *leftTree, HuffmanTree *rightTree)
 {
-    Node *tempNode = new Node(org.root->c, org.root->freq);
+    Node *tempNode = new Node(ch, f);
+    tempNode->left = leftTree->root;
+    tempNode->right = rightTree->root;
 
     root = tempNode; // set temp node = to root
-
-    tempNode = nullptr;
-    delete tempNode;
 }
 
 HuffmanTree::~HuffmanTree()
 {
-    delete root;
-    root = nullptr;
+    // MakeEmpty();
 }
 
 bool HuffmanTree::operator<(const HuffmanTree &rhs) const
@@ -76,34 +69,3 @@ void HuffmanTree::setFreq(int f)
 {
     root->freq = f;
 }
-
-// HuffmanTree &HuffmanTree::operator=(const HuffmanTree &rhs)
-// {
-// }
-
-//----------------------------------------------------------------------------//
-// ---------------------- PRIVATE HELPER FUNCTIONS ---------------------------//
-//----------------------------------------------------------------------------//
-
-// HuffmanTree *HuffmanTree::copyPrivate(const HuffmanTree copyNode)
-// {
-//     // node is empty return
-//     if (copyNode == nullptr)
-//     {
-//         return nullptr;
-//     }
-
-//     if (copyNode.left == nullptr && copyNode.right == nullptr)
-//     {
-//     }
-
-//     // Comparable *newItem = new Comparable(*copyNode->item);
-//     // Node *newNode = new Node(newItem);
-
-//     // newNode->count = copyNode->count; // copy primative data types
-
-//     // newNode->left = copyPrivate(copyNode->left);
-//     // newNode->right = copyPrivate(copyNode->right);
-
-//     return newNode;
-// }

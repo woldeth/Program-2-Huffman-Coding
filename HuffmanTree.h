@@ -42,10 +42,13 @@ private:
 public:
     HuffmanTree(); // constructor
     HuffmanTree(char ch, int f);
-    HuffmanTree(const HuffmanTree &org);            // copy constructor
-    ~HuffmanTree();                                 // destructor
-    HuffmanTree &operator=(const HuffmanTree &rhs); // assignment operator
-    bool operator<(const HuffmanTree &rhs) const;   //less than operator to store huffmantree in heap
+    HuffmanTree(char ch, int f, HuffmanTree *leftTree, HuffmanTree *rightTree);
+    HuffmanTree(const HuffmanTree &org); // copy constructor
+    ~HuffmanTree();                      // destructor
+
+    //HuffmanTree &operator=(const HuffmanTree &rhs); // assignment operator
+
+    bool operator<(const HuffmanTree &rhs) const; //less than operator to store huffmantree in heap
     char getChar() const;
     int getFreq() const;
     void setChar(char ch);

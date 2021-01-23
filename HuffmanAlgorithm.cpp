@@ -11,44 +11,43 @@
 #include "HuffmanAlgorithm.h"
 #include "HuffmanTree.cpp"
 
+//#include <vector>
 #include <iostream>
 
 HuffmanAlgorithm::HuffmanAlgorithm(int (&counts)[NUM_LETTERS])
 {
-    cout << "C" << "-" << "F" << endl;
+    
+
     for (int i = 0; i < NUM_LETTERS; i++)
     {
         HuffmanTree *newTree = new HuffmanTree(char('a' + i), counts[i]);
         mHeap.insert(newTree);
-        cout << 'a' + i << "=" <<newTree->getChar() << "|" << counts[i] << "=" << newTree->getFreq() << endl;
-
-        // newTree = nullptr;
-        // delete newTree;
+        //cout << 'a' + i << "=" << newTree->getChar() << "|" << counts[i] << "=" << newTree->getFreq() << endl;
     }
 
-    cout << endl;
-    cout << "MIN IN ORDER " << endl;
-
-
-    while (!mHeap.isEmpty())
+    while (mHeap.size() > 1)
     {
-        const HuffmanTree *min1 = mHeap.findMin();
-        HuffmanTree copyMin1(*min1);
+        // grabs 2 mins from heap
+        HuffmanTree *leftTree = mHeap.deleteMin();
+        HuffmanTree *rightTree = mHeap.deleteMin();
 
-        HuffmanTree *delMin1 = mHeap.deleteMin();
-        delete delMin1;
-        delMin1 = nullptr;
-    
-        const HuffmanTree *min2 = mHeap.findMin();
-        HuffmanTree copyMin2(*min2);
+        // cout << leftTree->getChar() << " " << leftTree->getFreq() << endl;
+        // cout << rightTree->getChar() << " " << rightTree->getFreq() << endl;
 
-        HuffmanTree *delMin2 = mHeap.deleteMin();
-        delete delMin2;
-        delMin2 = nullptr;
+        // get Frequency and char
+        int pFreq = leftTree->getFreq() + rightTree->getFreq();
+        char pC = leftTree->getChar();
 
-        cout << copyMin1.getChar() << " " << copyMin1.getFreq() << endl;
-        cout << copyMin2.getChar() << " " << copyMin2.getFreq()<< endl;
+        // create parent tree with left and right children 
+        HuffmanTree *pTree = new HuffmanTree(pC, pFreq, leftTree, rightTree);
 
+        // inserts parent back into the heap 
+        mHeap.insert(pTree);
     }
-}
 
+    // pulls the main tree out of heps
+    HuffmanTree *pTree = mHeap.deleteMin();
+    //cout << pTree->getChar() << " " << pTree->getFreq() << endl;
+
+    cout << "Check pTree " << endl;
+}

@@ -36,7 +36,7 @@ int main() {
 	// cout << "least: " << code.getWord("least") << endl;                     //   
 	// cout << endl;
 
-
+	cout << "made it here " << endl;
 
 	return 0;
 }
