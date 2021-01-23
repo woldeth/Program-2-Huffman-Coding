@@ -28,8 +28,10 @@ HuffmanAlgorithm::HuffmanAlgorithm(int (&counts)[NUM_LETTERS])
     while (mHeap.size() > 1)
     {
         // grabs 2 mins from heap
-        HuffmanTree *leftTree = mHeap.deleteMin();
-        HuffmanTree *rightTree = mHeap.deleteMin();
+        const HuffmanTree *leftTree = mHeap.findMin();
+        HuffmanTree *leftTreeDelete = mHeap.deleteMin();
+        const HuffmanTree *rightTree = mHeap.findMin();
+        HuffmanTree *rightTreeDelete = mHeap.deleteMin();
 
         // cout << leftTree->getChar() << " " << leftTree->getFreq() << endl;
         // cout << rightTree->getChar() << " " << rightTree->getFreq() << endl;
@@ -44,10 +46,11 @@ HuffmanAlgorithm::HuffmanAlgorithm(int (&counts)[NUM_LETTERS])
         // inserts parent back into the heap 
         mHeap.insert(pTree);
 
-        leftTree = nullptr;
-        delete leftTree;
-        rightTree = nullptr;
-        delete rightTree;
+        delete leftTreeDelete;
+        leftTreeDelete = nullptr;
+        delete rightTreeDelete;
+        rightTreeDelete = nullptr;
+        
     }
 
     // pulls the main tree out of heps

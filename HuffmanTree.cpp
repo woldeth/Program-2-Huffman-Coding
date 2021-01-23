@@ -20,7 +20,7 @@ HuffmanTree::HuffmanTree(char ch, int f)
 }
 
 // used for parent Trees
-HuffmanTree::HuffmanTree(char ch, int f, HuffmanTree *leftTree, HuffmanTree *rightTree)
+HuffmanTree::HuffmanTree(char ch, int f, const HuffmanTree *leftTree, const HuffmanTree *rightTree)
 {
     Node *tempNode = new Node(ch, f);
     tempNode->left = leftTree->root;
@@ -31,23 +31,24 @@ HuffmanTree::HuffmanTree(char ch, int f, HuffmanTree *leftTree, HuffmanTree *rig
 
 HuffmanTree::~HuffmanTree()
 {
-    makeEmptyPrivate(root);
+    //makeEmptyPrivate(root);
 }
 
-void HuffmanTree::makeEmptyPrivate(Node *&node)
-{
-    if (node == nullptr)
-    {
-        return;
-    }
+// void HuffmanTree::makeEmptyPrivate(Node *&node)
+// {
+//     if (node == nullptr)
+//     {
+//         return;
+//     }
 
-    makeEmptyPrivate(node->left);
-    makeEmptyPrivate(node->right);
+//     makeEmptyPrivate(node->left);
+//     makeEmptyPrivate(node->right);
 
-    delete node;
-    node = nullptr;
+//     delete node;
+//     node = nullptr;
 
-}
+// }
+
 bool HuffmanTree::operator<(const HuffmanTree &rhs) const
 {
 

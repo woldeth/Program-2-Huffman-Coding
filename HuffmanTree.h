@@ -46,7 +46,7 @@ private:
 public:
     HuffmanTree(); // constructor
     HuffmanTree(char ch, int f);
-    HuffmanTree(char ch, int f, HuffmanTree *leftTree, HuffmanTree *rightTree);
+    HuffmanTree(char ch, int f, const HuffmanTree *leftTree, const HuffmanTree *rightTree);
     HuffmanTree(const HuffmanTree &org); // copy constructor
     ~HuffmanTree();                      // destructor
 
