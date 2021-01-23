@@ -13,17 +13,6 @@
 
 using namespace std;
 
-// struct Node
-// {
-//     char c;
-//     int freq;
-//     Node *left;  // Pointer to left child
-//     Node *right; // Pointer to right child
-//     Node() : left(nullptr), right(nullptr) {}
-//     Node(char ch, int f) : c(ch), freq(f), left(nullptr), right(nullptr) {}       // Constructor to initialize node
-//     Node(char ch, int f, Node *l, Node *r) : c(ch), freq(f), left(l), right(r) {} // Constructor to initialize node
-// };
-
 class HuffmanTree
 {
 
@@ -38,28 +27,31 @@ private:
     };
 
     Node *root;
-
-    //void makeEmptyPrivate(Node *&node);
-
     void clearTreePrivate(Node *node);
     Node *copyPrivate(const Node *copyNode);
 
-    
-
 public:
-    HuffmanTree(); // constructor
+    //Constructors/ destructor
     HuffmanTree(char ch, int f);
-    HuffmanTree(char ch, int f, HuffmanTree *leftTree,HuffmanTree *rightTree);
-    HuffmanTree(const HuffmanTree &org); // copy constructor
-    ~HuffmanTree();                      // destructor
+    HuffmanTree(char ch, int f, HuffmanTree *leftTree, HuffmanTree *rightTree);
+    //HuffmanTree(const HuffmanTree &org);
+    ~HuffmanTree();
 
-    HuffmanTree &operator=(const HuffmanTree &rhs); // assignment operator
+    //Operators
+    //HuffmanTree &operator=(const HuffmanTree &rhs); // assignment operator
+    bool operator<(const HuffmanTree &rhs) const;   //less than operator to store huffmantree in heap
 
-    bool operator<(const HuffmanTree &rhs) const; //less than operator to store huffmantree in heap
+    //Getters
     char getChar() const;
     int getFreq() const;
+
+    //Setters
     void setChar(char ch);
     void setFreq(int f);
+
+    //Mutators
     void clear();
+
+    //displays
     //void TraverseHuffmanTree();
 };
