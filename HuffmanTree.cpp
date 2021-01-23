@@ -17,6 +17,9 @@ HuffmanTree::HuffmanTree(char ch, int f)
     // create new dynamically allocated node
     Node *tempNode = new Node(ch, f);
     root = tempNode; // set temp node = to root
+
+    tempNode = nullptr;
+    delete tempNode;
 }
 
 // used for parent Trees
@@ -27,6 +30,9 @@ HuffmanTree::HuffmanTree(char ch, int f, const HuffmanTree *leftTree, const Huff
     tempNode->right = rightTree->root;
 
     root = tempNode; // set temp node = to root
+
+    tempNode = nullptr;
+    delete tempNode;
 }
 
 HuffmanTree::~HuffmanTree()
@@ -102,5 +108,6 @@ void HuffmanTree::clearTreePrivate(Node *&node)
 
     delete node;
     node = nullptr;
+    
 
 }
