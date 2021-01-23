@@ -50,6 +50,9 @@ HuffmanAlgorithm::HuffmanAlgorithm(int (&counts)[NUM_LETTERS])
         leftTreeDelete = nullptr;
         delete rightTreeDelete;
         rightTreeDelete = nullptr;
+
+        pTree = nullptr;
+        delete pTree;
         
     }
 
