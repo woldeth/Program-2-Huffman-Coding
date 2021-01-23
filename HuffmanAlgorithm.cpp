@@ -43,7 +43,7 @@ HuffmanAlgorithm::HuffmanAlgorithm(int (&counts)[NUM_LETTERS])
         int pFreq = leftTree->getFreq() + rightTree->getFreq();
         char pC = leftTree->getChar();
 
-        // create parent tree with left and right children 
+        // create parent tree with left and right children      MEMORY LEAK HERE!!!!
         HuffmanTree *pTree = new HuffmanTree(pC, pFreq, leftTree, rightTree);
         leftTree = nullptr;
         rightTree = nullptr;

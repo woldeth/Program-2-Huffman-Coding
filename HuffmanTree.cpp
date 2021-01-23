@@ -23,7 +23,7 @@ HuffmanTree::HuffmanTree(char ch, int f)
 }
 
 // used for parent Trees
-HuffmanTree::HuffmanTree(char ch, int f, const HuffmanTree * const &leftTree, const HuffmanTree * const &rightTree)
+HuffmanTree::HuffmanTree(char ch, int f, const HuffmanTree *const &leftTree, const HuffmanTree *const &rightTree)
 {
     Node *tempNode = new Node(ch, f);
     tempNode->left = leftTree->root;
@@ -58,7 +58,8 @@ HuffmanTree::Node *HuffmanTree::copyPrivate(const Node *copyNode)
 
 HuffmanTree::~HuffmanTree()
 {
-    clearTreePrivate(root);
+    //clearTreePrivate(root);
+    delete this;
 }
 
 bool HuffmanTree::operator<(const HuffmanTree &rhs) const
@@ -79,17 +80,17 @@ bool HuffmanTree::operator<(const HuffmanTree &rhs) const
     return false;
 }
 
-HuffmanTree &HuffmanTree::operator=(const HuffmanTree &rhs)
-{
-    // checks to see if lhs and rhs is the same
-    if (this != &rhs)
-    {
-        this->clearTreePrivate(root);       // clear lhs
-        this->root = copyPrivate(rhs.root); // make a deep copy of the search tree
-    }
+// HuffmanTree &HuffmanTree::operator=(const HuffmanTree &rhs)
+// {
+//     // checks to see if lhs and rhs is the same
+//     if (this != &rhs)
+//     {
+//         this->clearTreePrivate(root);       // clear lhs
+//         this->root = copyPrivate(rhs.root); // make a deep copy of the search tree
+//     }
 
-    return *this;
-}
+//     return *this;
+// }
 
 char HuffmanTree::getChar() const
 {
@@ -127,3 +128,4 @@ void HuffmanTree::clearTreePrivate(Node *&node)
     delete node;
     node = nullptr;
 }
+
