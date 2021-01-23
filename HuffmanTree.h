@@ -39,7 +39,9 @@ private:
 
     Node *root;
 
-    void makeEmptyPrivate(Node *&node);
+    //void makeEmptyPrivate(Node *&node);
+
+    void clearTreePrivate(Node *&node);
 
     
 
@@ -57,5 +59,6 @@ public:
     int getFreq() const;
     void setChar(char ch);
     void setFreq(int f);
+    void clear();
     //void TraverseHuffmanTree();
 };

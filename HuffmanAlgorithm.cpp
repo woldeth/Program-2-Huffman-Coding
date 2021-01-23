@@ -50,15 +50,16 @@ HuffmanAlgorithm::HuffmanAlgorithm(int (&counts)[NUM_LETTERS])
         leftTreeDelete = nullptr;
         delete rightTreeDelete;
         rightTreeDelete = nullptr;
-
-        pTree = nullptr;
-        delete pTree;
         
     }
 
     // pulls the main tree out of heps
     HuffmanTree *pTree = mHeap.deleteMin();
     //cout << pTree->getChar() << " " << pTree->getFreq() << endl;
-
     cout << "Check pTree " << endl;
+    
+    pTree->clear();
+    pTree = nullptr;
+
+   
 }

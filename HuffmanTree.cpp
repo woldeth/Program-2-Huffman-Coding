@@ -84,3 +84,23 @@ void HuffmanTree::setFreq(int f)
 {
     root->freq = f;
 }
+
+void HuffmanTree::clear()
+{
+    clearTreePrivate(root);
+}
+
+void HuffmanTree::clearTreePrivate(Node *&node)
+{
+    if (node == nullptr)
+    {
+        return;
+    }
+
+    clearTreePrivate(node->left);
+    clearTreePrivate(node->right);
+
+    delete node;
+    node = nullptr;
+
+}
