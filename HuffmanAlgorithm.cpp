@@ -50,6 +50,11 @@ HuffmanAlgorithm::HuffmanAlgorithm(int (&counts)[NUM_LETTERS])
     cout << endl;
 }
 
+HuffmanAlgorithm::~HuffmanAlgorithm(){
+    delete mainTree;
+    mainTree = nullptr;
+}
+
 string HuffmanAlgorithm::getWord(string in)
 {
     string code = "";
