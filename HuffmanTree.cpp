@@ -39,21 +39,21 @@ HuffmanTree::HuffmanTree(char ch, int f, HuffmanTree *leftTree, HuffmanTree *rig
 //     root = copyPrivate(org.root);
 // }
 
-HuffmanTree::Node *HuffmanTree::copyPrivate(const Node *copyNode)
-{
-    // node is empty return
-    if (copyNode == nullptr)
-    {
-        return nullptr;
-    }
+// HuffmanTree::Node *HuffmanTree::copyPrivate(const Node *copyNode)
+// {
+//     // node is empty return
+//     if (copyNode == nullptr)
+//     {
+//         return nullptr;
+//     }
 
-    HuffmanTree *newTree = new HuffmanTree(copyNode->c, copyNode->freq);
+//     HuffmanTree *newTree = new HuffmanTree(copyNode->c, copyNode->freq);
 
-    newTree->root->left = copyPrivate(copyNode->left);
-    newTree->root->right = copyPrivate(copyNode->right);
+//     newTree->root->left = copyPrivate(copyNode->left);
+//     newTree->root->right = copyPrivate(copyNode->right);
 
-    return newTree->root;
-}
+//     return newTree->root;
+// }
 
 HuffmanTree::~HuffmanTree()
 {
@@ -125,4 +125,26 @@ void HuffmanTree::clearTreePrivate(Node *node)
 
     delete node;
     node = nullptr;
+}
+
+void HuffmanTree::TraverseHuffmanTree(Node *node)
+{
+    static int index = 0;
+    string code = "";
+
+
+
+
+
+
+
+}
+
+bool HuffmanTree::isLeaf(Node *node)
+{
+    if (node->left == nullptr && node->right == nullptr)
+    {
+        return true;
+    }
+    return false;
 }

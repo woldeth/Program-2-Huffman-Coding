@@ -11,7 +11,10 @@
 
 #include <iostream>
 
+
 using namespace std;
+
+const int NUM_LETTERS = 3; // is this the correct place?
 
 class HuffmanTree
 {
@@ -28,7 +31,9 @@ private:
 
     Node *root;
     void clearTreePrivate(Node *node);
-    Node *copyPrivate(const Node *copyNode);
+   // Node *copyPrivate(const Node *copyNode);
+
+    string encode[NUM_LETTERS];
 
 public:
     //Constructors/ destructor
@@ -39,7 +44,7 @@ public:
 
     //Operators
     //HuffmanTree &operator=(const HuffmanTree &rhs); // assignment operator
-    bool operator<(const HuffmanTree &rhs) const;   //less than operator to store huffmantree in heap
+    bool operator<(const HuffmanTree &rhs) const; //less than operator to store huffmantree in heap
 
     //Getters
     char getChar() const;
@@ -53,5 +58,7 @@ public:
     void clear();
 
     //displays
-    //void TraverseHuffmanTree();
+    void TraverseHuffmanTree(Node *node);
+
+    bool isLeaf(Node *node);
 };
