@@ -127,17 +127,33 @@ void HuffmanTree::clearTreePrivate(Node *node)
     node = nullptr;
 }
 
-void HuffmanTree::TraverseHuffmanTree(Node *node)
+void HuffmanTree::traverseHuffmanTree()
 {
-    static int index = 0;
+    int index = 0;
     string code = "";
 
+    traversePrivate(root, code, index);
+}
 
+void HuffmanTree::traversePrivate(Node *node, string &c, int &index)
+{
+    if (node->left != nullptr)
+    {
+        c = c + "0";
+        traversePrivate(node->left, c, index);
+    }
 
-
-
-
-
+    if (root->right != nullptr)
+    {
+        c = c + "1";
+        traversePrivate(node->right, c, index);
+    }
+    if (isLeaf(node))
+    {
+        encode[index] = c;
+        c = "";
+        index = index + 1;
+    }
 }
 
 bool HuffmanTree::isLeaf(Node *node)

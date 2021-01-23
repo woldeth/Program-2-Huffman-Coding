@@ -11,7 +11,6 @@
 
 #include <iostream>
 
-
 using namespace std;
 
 const int NUM_LETTERS = 3; // is this the correct place?
@@ -31,7 +30,8 @@ private:
 
     Node *root;
     void clearTreePrivate(Node *node);
-   // Node *copyPrivate(const Node *copyNode);
+    // Node *copyPrivate(const Node *copyNode);
+    void traversePrivate(Node *node, string &c, int &index);
 
     string encode[NUM_LETTERS];
 
@@ -57,8 +57,7 @@ public:
     //Mutators
     void clear();
 
-    //displays
-    void TraverseHuffmanTree(Node *node);
+    void traverseHuffmanTree();
 
     bool isLeaf(Node *node);
 };

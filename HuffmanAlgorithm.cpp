@@ -42,6 +42,10 @@ HuffmanAlgorithm::HuffmanAlgorithm(int (&counts)[NUM_LETTERS])
     HuffmanTree *pTree = mHeap.deleteMin();
     cout << "DEBUG: Check pTree " << endl;
 
-    delete pTree;
-    pTree = nullptr;
+    // delete pTree;
+    // pTree = nullptr;
+
+    pTree->traverseHuffmanTree();
+
+    cout << endl;
 }
