@@ -32,7 +32,7 @@ int main() {
 	//cout << code << endl;
 
 	// // Simple test of encoding words
-	// cout << "test:  " << code.getWord("test") << endl;                      // get a word
+	cout << "test:  " << code.getWord("abc") << endl;                      // get a word
 	// cout << "least: " << code.getWord("least") << endl;                     //   
 	// cout << endl;
 

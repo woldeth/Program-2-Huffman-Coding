@@ -33,7 +33,7 @@ private:
     // Node *copyPrivate(const Node *copyNode);
     void traversePrivate(Node *node, string &c, int &index);
 
-    string encode[NUM_LETTERS];
+    string codeBook[NUM_LETTERS];
 
 public:
     //Constructors/ destructor
@@ -49,6 +49,7 @@ public:
     //Getters
     char getChar() const;
     int getFreq() const;
+    string getCode(char c);
 
     //Setters
     void setChar(char ch);
@@ -56,8 +57,6 @@ public:
 
     //Mutators
     void clear();
-
     void traverseHuffmanTree();
-
     bool isLeaf(Node *node);
 };

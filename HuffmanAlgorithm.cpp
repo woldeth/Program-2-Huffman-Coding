@@ -39,12 +39,24 @@ HuffmanAlgorithm::HuffmanAlgorithm(int (&counts)[NUM_LETTERS])
         mHeap.insert(pTree);
     }
 
-    HuffmanTree *pTree = mHeap.deleteMin();
+    mainTree = mHeap.deleteMin();
     cout << "DEBUG: Check pTree " << endl;
+
+    mainTree->traverseHuffmanTree();
 
     // delete pTree;
     // pTree = nullptr;
-    pTree->traverseHuffmanTree();
 
     cout << endl;
+}
+
+string HuffmanAlgorithm::getWord(string in)
+{
+    string code = "";
+    for (int i = 0; i < in.length(); i++)
+    {
+        code = code + mainTree->getCode(in[i]);
+    }
+
+    return code;
 }

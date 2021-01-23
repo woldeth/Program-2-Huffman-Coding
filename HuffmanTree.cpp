@@ -10,6 +10,7 @@
 
 #include "HuffmanTree.h"
 #include <iostream>
+#include <string>
 
 // used for leaf Trees
 HuffmanTree::HuffmanTree(char ch, int f)
@@ -152,7 +153,7 @@ void HuffmanTree::traversePrivate(Node *node, string &c, int &index)
     }
     if (isLeaf(node))
     {
-        encode[index] = node->c + c; // remove letter once complete
+        codeBook[index] = node->c + c; // remove letter once complete
         index = index + 1;
     }
 }
@@ -164,4 +165,18 @@ bool HuffmanTree::isLeaf(Node *node)
         return true;
     }
     return false;
+}
+
+string HuffmanTree::getCode(char c)
+{
+    for (int i = 0; i < NUM_LETTERS; i++)
+    {
+        if (c == (codeBook[i])[0])
+        {
+            //cout << codeBook[i].substr(c);
+            return codeBook[i].substr(1);
+        }
+    }
+
+    return "";
 }
