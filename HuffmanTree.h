@@ -39,6 +39,10 @@ private:
 
     Node *root;
 
+    void makeEmptyPrivate(Node *&node);
+
+    
+
 public:
     HuffmanTree(); // constructor
     HuffmanTree(char ch, int f);

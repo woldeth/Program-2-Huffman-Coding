@@ -11,7 +11,7 @@
 #include "HuffmanTree.h"
 #include <iostream>
 
-// used for leaf Trees 
+// used for leaf Trees
 HuffmanTree::HuffmanTree(char ch, int f)
 {
     // create new dynamically allocated node
@@ -31,9 +31,23 @@ HuffmanTree::HuffmanTree(char ch, int f, HuffmanTree *leftTree, HuffmanTree *rig
 
 HuffmanTree::~HuffmanTree()
 {
-    // MakeEmpty();
+    makeEmptyPrivate(root);
 }
 
+void HuffmanTree::makeEmptyPrivate(Node *&node)
+{
+    if (node == nullptr)
+    {
+        return;
+    }
+
+    makeEmptyPrivate(node->left);
+    makeEmptyPrivate(node->right);
+
+    delete node;
+    node = nullptr;
+
+}
 bool HuffmanTree::operator<(const HuffmanTree &rhs) const
 {
 
