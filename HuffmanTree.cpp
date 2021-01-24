@@ -48,13 +48,6 @@ HuffmanTree::Node *HuffmanTree::copyPrivate(const Node *copyNode)
         return nullptr;
     }
 
-    // HuffmanTree *newTree = new HuffmanTree(copyNode->c, copyNode->freq);
-
-    // newTree->root->left = copyPrivate(copyNode->left);
-    // newTree->root->right = copyPrivate(copyNode->right);
-
-    // return newTree->root;
-
     Node *newNode = new Node(copyNode->c, copyNode->freq);
 
     newNode->left = copyPrivate(copyNode->left);
@@ -86,17 +79,17 @@ bool HuffmanTree::operator<(const HuffmanTree &rhs) const
     return false;
 }
 
-// HuffmanTree &HuffmanTree::operator=(const HuffmanTree &rhs)
-// {
-//     // checks to see if lhs and rhs is the same
-//     if (this != &rhs)
-//     {
-//         clearTreePrivate(root);       // clear lhs
-//         root = copyPrivate(rhs.root); // make a deep copy of the search tree
-//     }
+HuffmanTree &HuffmanTree::operator=(const HuffmanTree &rhs)
+{
+    // checks to see if lhs and rhs is the same
+    if (this != &rhs)
+    {
+        clearTreePrivate(root);       // clear lhs
+        root = copyPrivate(rhs.root); // make a deep copy of the search tree
+    }
 
-//     return *this;
-// }
+    return *this;
+}
 
 char HuffmanTree::getChar() const
 {

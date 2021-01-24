@@ -41,7 +41,7 @@ public:
     ~HuffmanTree();
 
     //Operators
-    //HuffmanTree &operator=(const HuffmanTree &rhs); // assignment operator
+    HuffmanTree &operator=(const HuffmanTree &rhs); // assignment operator
     bool operator<(const HuffmanTree &rhs) const; //less than operator to store huffmantree in heap
     friend ostream &operator<<(ostream &output, HuffmanTree &I); 
 
