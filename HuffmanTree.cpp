@@ -173,10 +173,20 @@ string HuffmanTree::getCode(char c)
     {
         if (c == (codeBook[i])[0])
         {
-            //cout << codeBook[i].substr(c);
             return codeBook[i].substr(1);
         }
     }
 
     return "";
+}
+
+ostream &operator<<(ostream &output, HuffmanTree &I)
+{
+    char start = 'a';
+    for (int i = 0; i < NUM_LETTERS; i++)
+    {
+        cout << char(start + i) << " " <<  I.getCode(char('a' + i)) << endl;
+    }
+
+    return output;
 }

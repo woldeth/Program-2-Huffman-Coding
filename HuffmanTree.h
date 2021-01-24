@@ -13,7 +13,7 @@
 
 using namespace std;
 
-const int NUM_LETTERS = 3; // is this the correct place?
+const int NUM_LETTERS = 26; // is this the correct place?
 
 class HuffmanTree
 {
@@ -45,6 +45,7 @@ public:
     //Operators
     //HuffmanTree &operator=(const HuffmanTree &rhs); // assignment operator
     bool operator<(const HuffmanTree &rhs) const; //less than operator to store huffmantree in heap
+    friend ostream &operator<<(ostream &output, HuffmanTree &I); 
 
     //Getters
     char getChar() const;

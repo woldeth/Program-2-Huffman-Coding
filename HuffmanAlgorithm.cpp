@@ -32,7 +32,7 @@ HuffmanAlgorithm::HuffmanAlgorithm(int (&counts)[NUM_LETTERS])
         int pFreq = leftTree->getFreq() + rightTree->getFreq();
         char pC = leftTree->getChar();
 
-        // create parent tree with left and right children      MEMORY LEAK HERE!!!!
+        // create parent tree with left and right children     
         HuffmanTree *pTree = new HuffmanTree(pC, pFreq, leftTree, rightTree);
 
         // inserts parent back into the heap
@@ -40,17 +40,12 @@ HuffmanAlgorithm::HuffmanAlgorithm(int (&counts)[NUM_LETTERS])
     }
 
     mainTree = mHeap.deleteMin();
-    cout << "DEBUG: Check pTree " << endl;
-
     mainTree->traverseHuffmanTree();
 
-    // delete pTree;
-    // pTree = nullptr;
-
-    cout << endl;
 }
 
-HuffmanAlgorithm::~HuffmanAlgorithm(){
+HuffmanAlgorithm::~HuffmanAlgorithm()
+{
     delete mainTree;
     mainTree = nullptr;
 }
@@ -62,6 +57,13 @@ string HuffmanAlgorithm::getWord(string in)
     {
         code = code + mainTree->getCode(in[i]);
     }
-
     return code;
+}
+
+ostream &operator<<(ostream &output, HuffmanAlgorithm &I)
+{
+    cout << *I.mainTree;
+
+    return output;
+
 }
