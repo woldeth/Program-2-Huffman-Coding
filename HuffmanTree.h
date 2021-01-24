@@ -30,14 +30,14 @@ private:
 
     Node *root;
     void clearTreePrivate(Node *node);
-    // Node *copyPrivate(const Node *copyNode);
+    Node *copyPrivate(const Node *copyNode);
     void traverseCodePrivate(Node *node, string &c, int &index, string cBook[NUM_LETTERS]);
 
 public:
     //Constructors/ destructor
     HuffmanTree(char ch, int f);
     HuffmanTree(char ch, int f, HuffmanTree *leftTree, HuffmanTree *rightTree);
-    //HuffmanTree(const HuffmanTree &org);
+    HuffmanTree(const HuffmanTree &org);
     ~HuffmanTree();
 
     //Operators
