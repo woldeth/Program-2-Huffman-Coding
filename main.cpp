@@ -11,32 +11,32 @@
 //------------------------------------------------------------------------
 
 #include <iostream>
-#include "HuffmanAlgorithm.cpp"	// Must have "const int NUM_LETTERS = 26;"
+#include "HuffmanAlgorithm.cpp" // Must have "const int NUM_LETTERS = 26;"
 using namespace std;
-
 
 //------------------------------------------------------------------------
 // main
 // Preconditions: none
 // Postconditions: tests methods of the Huffman class using randomly
 //					generated character counts
-int main() {
+int main()
+{
 	// Create random counts
 	int counts[NUM_LETTERS];
-	for (int i = 0; i < NUM_LETTERS; i++) {
+	for (int i = 0; i < NUM_LETTERS; i++)
+	{
 		counts[i] = rand() % 1000;
 	}
 
 	// Construct Huffman codes and display table
-	HuffmanAlgorithm code(counts);                      //passed in array to huffman alogorithm
+	HuffmanAlgorithm code(counts); //passed in array to huffman alogorithm
 	cout << code << endl;
 	cout << endl;
 
-	// // Simple test of encoding words
-	cout << "test:  " << code.getWord("test") << endl;                      // get a word
-	cout << "least: " << code.getWord("least") << endl;                     
+	// // // Simple test of encoding words
+	cout << "test:  " << code.getWord("abc") << endl; // get a word
+	cout << "least: " << code.getWord("least") << endl;
 	cout << endl;
-
 
 	return 0;
 }

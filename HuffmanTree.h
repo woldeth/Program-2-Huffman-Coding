@@ -13,7 +13,7 @@
 
 using namespace std;
 
-const int NUM_LETTERS = 26; // is this the correct place?
+const int NUM_LETTERS = 3;
 
 class HuffmanTree
 {
@@ -31,9 +31,7 @@ private:
     Node *root;
     void clearTreePrivate(Node *node);
     // Node *copyPrivate(const Node *copyNode);
-    void traversePrivate(Node *node, string &c, int &index);
-
-    string codeBook[NUM_LETTERS];
+    void traverseCodePrivate(Node *node, string &c, int &index, string cBook[NUM_LETTERS]);
 
 public:
     //Constructors/ destructor
@@ -50,7 +48,7 @@ public:
     //Getters
     char getChar() const;
     int getFreq() const;
-    string getCode(char c);
+
 
     //Setters
     void setChar(char ch);
@@ -58,6 +56,6 @@ public:
 
     //Mutators
     void clear();
-    void traverseHuffmanTree();
+    void traverseCode(string cBook[NUM_LETTERS]);
     bool isLeaf(Node *node);
 };

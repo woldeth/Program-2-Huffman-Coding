@@ -32,7 +32,7 @@ HuffmanAlgorithm::HuffmanAlgorithm(int (&counts)[NUM_LETTERS])
         int pFreq = leftTree->getFreq() + rightTree->getFreq();
         char pC = leftTree->getChar();
 
-        // create parent tree with left and right children     
+        // create parent tree with left and right children
         HuffmanTree *pTree = new HuffmanTree(pC, pFreq, leftTree, rightTree);
 
         // inserts parent back into the heap
@@ -40,8 +40,7 @@ HuffmanAlgorithm::HuffmanAlgorithm(int (&counts)[NUM_LETTERS])
     }
 
     mainTree = mHeap.deleteMin();
-    mainTree->traverseHuffmanTree();
-
+    mainTree->traverseCode(cBook);
 }
 
 HuffmanAlgorithm::~HuffmanAlgorithm()
@@ -55,15 +54,30 @@ string HuffmanAlgorithm::getWord(string in)
     string code = "";
     for (int i = 0; i < in.length(); i++)
     {
-        code = code + mainTree->getCode(in[i]);
+        code = code + getCode(in[i]);
     }
     return code;
 }
 
+string HuffmanAlgorithm::getCode(char c)
+{
+    for (int i = 0; i < NUM_LETTERS; i++)
+    {
+        if (c == (cBook[i])[0])
+        {
+            return cBook[i].substr(1);
+        }
+    }
+    return "";
+}
+
 ostream &operator<<(ostream &output, HuffmanAlgorithm &I)
 {
-    cout << *I.mainTree;
+    char start = 'a';
+    for (int i = 0; i < NUM_LETTERS; i++)
+    {
+        output << char(start + i) << " " << I.getCode(char('a' + i)) << endl;
+    }
 
     return output;
-
 }

@@ -15,16 +15,19 @@
 
 using namespace std;
 
+
 class HuffmanAlgorithm
 {
 
 private:
     Heap<HuffmanTree> mHeap;
     HuffmanTree *mainTree;
+    string cBook[NUM_LETTERS];
 
 public:
     HuffmanAlgorithm(int (&counts)[NUM_LETTERS]);
     ~HuffmanAlgorithm();
     string getWord(string in);                                        //takes in a word to encode assume all lower case ignore non letter
     friend ostream &operator<<(ostream &output, HuffmanAlgorithm &I); // Output the letter-to-code translation table
+    string getCode(char c);
 };

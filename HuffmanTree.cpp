@@ -128,36 +128,6 @@ void HuffmanTree::clearTreePrivate(Node *node)
     node = nullptr;
 }
 
-void HuffmanTree::traverseHuffmanTree()
-{
-    int index = 0;
-    string code = "";
-
-    traversePrivate(root, code, index);
-}
-
-void HuffmanTree::traversePrivate(Node *node, string &c, int &index)
-{
-    if (node->left != nullptr)
-    {
-        c = c + "0";
-        traversePrivate(node->left, c, index);
-        c.pop_back();
-    }
-
-    if (node->right != nullptr)
-    {
-        c = c + "1";
-        traversePrivate(node->right, c, index);
-        c.pop_back();
-    }
-    if (isLeaf(node))
-    {
-        codeBook[index] = node->c + c; // remove letter once complete
-        index = index + 1;
-    }
-}
-
 bool HuffmanTree::isLeaf(Node *node)
 {
     if (node->left == nullptr && node->right == nullptr)
@@ -167,26 +137,34 @@ bool HuffmanTree::isLeaf(Node *node)
     return false;
 }
 
-string HuffmanTree::getCode(char c)
-{
-    for (int i = 0; i < NUM_LETTERS; i++)
-    {
-        if (c == (codeBook[i])[0])
-        {
-            return codeBook[i].substr(1);
-        }
-    }
 
-    return "";
+
+void HuffmanTree::traverseCode(string cBook[NUM_LETTERS])
+{
+    int index = 0;
+    string code = "";
+    traverseCodePrivate(root, code, index, cBook);
 }
 
-ostream &operator<<(ostream &output, HuffmanTree &I)
+void HuffmanTree::traverseCodePrivate(Node *node, string &c, int &index, string cBook[NUM_LETTERS])
 {
-    char start = 'a';
-    for (int i = 0; i < NUM_LETTERS; i++)
+    if (node->left != nullptr)
     {
-        cout << char(start + i) << " " <<  I.getCode(char('a' + i)) << endl;
+        c = c + "0";
+        traverseCodePrivate(node->left, c, index, cBook);
+        c.pop_back();
     }
 
-    return output;
+    if (node->right != nullptr)
+    {
+        c = c + "1";
+        traverseCodePrivate(node->right, c, index, cBook);
+        c.pop_back();
+    }
+
+    if (isLeaf(node))
+    {
+        cBook[index] = node->c + c; // remove letter once complete
+        index = index + 1;
+    }
 }
