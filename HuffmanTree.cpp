@@ -48,12 +48,19 @@ HuffmanTree::Node *HuffmanTree::copyPrivate(const Node *copyNode)
         return nullptr;
     }
 
-    HuffmanTree *newTree = new HuffmanTree(copyNode->c, copyNode->freq);
+    // HuffmanTree *newTree = new HuffmanTree(copyNode->c, copyNode->freq);
 
-    newTree->root->left = copyPrivate(copyNode->left);
-    newTree->root->right = copyPrivate(copyNode->right);
+    // newTree->root->left = copyPrivate(copyNode->left);
+    // newTree->root->right = copyPrivate(copyNode->right);
 
-    return newTree->root;
+    // return newTree->root;
+
+    Node *newNode = new Node(copyNode->c, copyNode->freq);
+
+    newNode->left = copyPrivate(copyNode->left);
+    newNode->right = copyPrivate(copyNode->right);
+
+    return newNode;
 }
 
 HuffmanTree::~HuffmanTree()
@@ -136,8 +143,6 @@ bool HuffmanTree::isLeaf(Node *node)
     }
     return false;
 }
-
-
 
 void HuffmanTree::traverseCode(string cBook[NUM_LETTERS])
 {
