@@ -58,6 +58,12 @@ public:
     //
     Heap(const Heap &org)
     {
+        for (int i = 0; i < org.size(); i++)
+        {
+            Comparable *ptr = new Comparable(*org.items[i]);
+            insert(ptr);
+        }
+        heapify();
     }
 
     //------------------------------------------------------------------------
@@ -82,33 +88,25 @@ public:
     //
     // Postconditions:
     //
-    // Heap &operator=(const Heap &rhs)
-    // {
-    //     if (this != &rhs)
-    //     {
+    Heap &operator=(const Heap &rhs)
+    {
+        while (!isEmpty())
+        {
+            Comparable *ptr = deleteMin();
+            delete ptr;
+            ptr = nullptr;
+        }
 
-    //         if (!isEmpty())
-    //         {
-    //             for (int i = 0; i < numElements; i++)
-    //             {
-    //                 Comparable *ptr = items[i];
-    //                 delete ptr;
-    //                 ptr = nullptr;
-    //             }
-    //         }
+        for (int i = 0; i < rhs.size(); i++)
+        {
+            Comparable *ptr = new Comparable(*rhs.items[i]);
+            insert(ptr);
+        }
 
-    //         //numElements = 0;
+        heapify();
 
-    //         for (int i = 0; i < rhs.size(); i++)
-    //         {
-    //             Comparable *ptr = new Comparable(*rhs.items[i]);
-    //             insert(ptr);
-    //         }
-    //         heapify();
-    //     }
-
-    //     return *this;
-    // }
+        return *this;
+    }
 
     //------------------------------------------------------------------------
     // insert - adds a single item to the heap
