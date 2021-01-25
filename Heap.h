@@ -68,7 +68,15 @@ public:
     //
     ~Heap()
     {
-        // vector<Comparable *> items
+        if (!isEmpty())
+        {
+            for (int i = 0; i < numElements; i++)
+            {
+                Comparable *ptr = items[i];
+                delete ptr;
+                ptr = nullptr;
+            }
+        }
     }
 
     //------------------------------------------------------------------------
