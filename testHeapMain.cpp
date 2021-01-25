@@ -19,9 +19,14 @@ int main()
 
     Heap<HuffmanTree> mHeap(array, 3);
 
+   
+
+
+  //  n = mHeap; 
+
     cout << "look at data" << endl;
 
-
+   // cout << n.deleteMin()->getChar() << " " << mHeap.deleteMin()->getChar() << endl;
 
     return 0;
 }

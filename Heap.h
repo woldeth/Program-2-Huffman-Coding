@@ -68,17 +68,12 @@ public:
     //
     ~Heap()
     {
-        if (!isEmpty())
+        while (!isEmpty())
         {
-            for (int i = 0; i < numElements; i++)
-            {
-                Comparable *ptr = deleteMin();
-                delete ptr;
-                ptr = nullptr;
-            }
+            Comparable *ptr = deleteMin();
+            delete ptr;
+            ptr = nullptr;
         }
-
-        //numElements = 0;
     }
 
     //------------------------------------------------------------------------
@@ -91,11 +86,25 @@ public:
     // {
     //     if (this != &rhs)
     //     {
-            
-    //         ~Heap()       // clear lhs
-            
-    //         for(int i =0; )
-    //         root = copyPrivate(rhs.root); // make a deep copy of the search tree
+
+    //         if (!isEmpty())
+    //         {
+    //             for (int i = 0; i < numElements; i++)
+    //             {
+    //                 Comparable *ptr = items[i];
+    //                 delete ptr;
+    //                 ptr = nullptr;
+    //             }
+    //         }
+
+    //         //numElements = 0;
+
+    //         for (int i = 0; i < rhs.size(); i++)
+    //         {
+    //             Comparable *ptr = new Comparable(*rhs.items[i]);
+    //             insert(ptr);
+    //         }
+    //         heapify();
     //     }
 
     //     return *this;
