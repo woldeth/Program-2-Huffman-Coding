@@ -41,8 +41,7 @@ HuffmanAlgorithm::HuffmanAlgorithm(int (&counts)[NUM_LETTERS])
 
     mainTree = mHeap.deleteMin();
     mainTree->traverseCode(cBook);
-
-    HuffmanTree copyMainTree = *mainTree;
+    
 }
 
 HuffmanAlgorithm::~HuffmanAlgorithm()

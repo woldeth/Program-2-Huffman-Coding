@@ -33,7 +33,6 @@ public:
     {
     }
 
-
     //------------------------------------------------------------------------
     // Heap(Comparable **array, int count) - constuctor
     // Preconditions:
@@ -43,6 +42,12 @@ public:
 
     Heap(Comparable **array, int count)
     {
+        for (int i = 0; i < count; i++)
+        {
+            insert(array[i]);
+        }
+
+        heapify();
     }
 
     //------------------------------------------------------------------------
@@ -63,7 +68,7 @@ public:
     //
     ~Heap()
     {
-       // vector<Comparable *> items
+        // vector<Comparable *> items
     }
 
     //------------------------------------------------------------------------
@@ -170,7 +175,6 @@ public:
     {
         return numElements == 0;
     }
-
 
 private:
     //------------------------------------------------------------------------
