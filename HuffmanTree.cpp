@@ -63,6 +63,8 @@ HuffmanTree::~HuffmanTree()
 
 bool HuffmanTree::operator<(const HuffmanTree &rhs) const
 {
+    // 1   <  3   true;   1== 1
+    // lhsHuffmanTree < rhsHuffmantree  define truee and false 
 
     if (root->freq < rhs.root->freq)
     {

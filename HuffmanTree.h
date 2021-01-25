@@ -23,7 +23,7 @@ private:
     {
         char c;
         int freq;
-        Node *left;  // Pointer to left child
+        Node *left; // Pointer to left child
         Node *right; // Pointer to right child
         Node(char ch, int f) : c(ch), freq(f), left(nullptr), right(nullptr) {}
     };
@@ -44,6 +44,9 @@ public:
     HuffmanTree &operator=(const HuffmanTree &rhs); // assignment operator
     bool operator<(const HuffmanTree &rhs) const; //less than operator to store huffmantree in heap
     friend ostream &operator<<(ostream &output, HuffmanTree &I); 
+
+    // 1 + 3
+    // lhsh + rhs h
 
     //Getters
     char getChar() const;
