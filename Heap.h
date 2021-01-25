@@ -72,11 +72,13 @@ public:
         {
             for (int i = 0; i < numElements; i++)
             {
-                Comparable *ptr = items[i];
+                Comparable *ptr = deleteMin();
                 delete ptr;
                 ptr = nullptr;
             }
         }
+
+        //numElements = 0;
     }
 
     //------------------------------------------------------------------------
@@ -85,9 +87,19 @@ public:
     //
     // Postconditions:
     //
-    Heap &operator=(const Heap &rhs)
-    {
-    }
+    // Heap &operator=(const Heap &rhs)
+    // {
+    //     if (this != &rhs)
+    //     {
+            
+    //         ~Heap()       // clear lhs
+            
+    //         for(int i =0; )
+    //         root = copyPrivate(rhs.root); // make a deep copy of the search tree
+    //     }
+
+    //     return *this;
+    // }
 
     //------------------------------------------------------------------------
     // insert - adds a single item to the heap
