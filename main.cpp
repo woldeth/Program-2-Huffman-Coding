@@ -34,8 +34,8 @@ int main()
 	cout << endl;
 
 	// // // Simple test of encoding words
-	cout << "test:  " << code.getWord("abc") << endl; // get a word
-	cout << "least: " << code.getWord("least") << endl;
+	cout << "test:  " << code.getWord("Tomas") << endl; // get a word
+	cout << "least: " << code.getWord("tomas") << endl;
 	cout << endl;
 
 	return 0;

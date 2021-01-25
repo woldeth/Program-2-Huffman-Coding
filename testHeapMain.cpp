@@ -11,25 +11,26 @@ int main()
 
     HuffmanTree *array[3];
 
+
     for (int i = 0; i < 3; i++)
     {
         HuffmanTree *ptr = new HuffmanTree(char('a' + i), 100 + i);
         array[i] = ptr;
+        
     }
 
     Heap<HuffmanTree> mHeap(array, 3);
+    Heap<HuffmanTree> n;
+    HuffmanTree *ptr = new HuffmanTree(char('b'), 100 );
 
-    Heap<HuffmanTree> n(mHeap);
+    n.insert(ptr);
+
+
+
+
 
 
     
-
-    cout << n.deleteMin()->getChar() << " " << mHeap.deleteMin()->getChar() << endl;
-
-    cout << mHeap.deleteMin()->getChar() << endl;
-    cout << mHeap.deleteMin()->getChar() << endl;
-    cout << n.deleteMin()->getChar() << endl;
-    cout << n.deleteMin()->getChar() << endl;
     //cout << mHeap.deleteMin()->getChar() << endl;
 
 

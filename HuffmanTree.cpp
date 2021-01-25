@@ -109,10 +109,10 @@ void HuffmanTree::setFreq(int f)
     root->freq = f;
 }
 
-void HuffmanTree::clear()
-{
-    clearTreePrivate(root);
-}
+// void HuffmanTree::clear()
+// {
+//     clearTreePrivate(root);
+// }
 
 void HuffmanTree::clearTreePrivate(Node *node)
 {

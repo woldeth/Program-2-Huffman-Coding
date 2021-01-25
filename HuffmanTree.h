@@ -13,7 +13,7 @@
 
 using namespace std;
 
-const int NUM_LETTERS = 3;
+const int NUM_LETTERS = 26;
 
 class HuffmanTree
 {
@@ -55,7 +55,7 @@ public:
     void setFreq(int f);
 
     //Mutators
-    void clear();
+   // void clear();
     void traverseCode(string cBook[NUM_LETTERS]);
     bool isLeaf(Node *node);
 };
