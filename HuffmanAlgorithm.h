@@ -26,9 +26,9 @@ class HuffmanAlgorithm
 {
 
 private:
-    Heap<HuffmanTree> mHeap;
-    HuffmanTree *mainTree;
-    string cBook[NUM_LETTERS];
+    Heap<HuffmanTree> mHeap;   // min heap to hold various trees
+    HuffmanTree *mainTree;     // main huffman tree pointer
+    string cBook[NUM_LETTERS]; // List to hold codes for chars
 
 public:
     //---------------------------------------------------------------------------------

@@ -16,7 +16,7 @@
 //--------------------------------------------------------------------
 
 #include "HuffmanAlgorithm.h"
-#include "HuffmanTree.cpp"
+#include "HuffmanTree.h"
 
 #include <iostream>
 

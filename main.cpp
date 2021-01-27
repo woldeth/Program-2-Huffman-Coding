@@ -11,7 +11,7 @@
 //------------------------------------------------------------------------
 
 #include <iostream>
-#include "HuffmanAlgorithm.cpp" // Must have "const int NUM_LETTERS = 26;"
+#include "HuffmanAlgorithm.h" // Must have "const int NUM_LETTERS = 26;"
 using namespace std;
 
 //------------------------------------------------------------------------

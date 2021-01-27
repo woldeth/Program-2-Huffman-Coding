@@ -5,9 +5,9 @@
 // Title: PROGRAM 2
 // -------------------------------------------------------------------
 // HuffmanTree class:
-//	Implements the HuffmanTree class utilizing a struct node to 
+//	Implements the HuffmanTree class utilizing a struct node to
 //	hold the characters, frequency, left and right child. The Huffman
-//	Tree uses the following methods 
+//	Tree uses the following methods
 //	     operator</=, getters/setters, clearTree, TraverseCoder, etc
 //  The HuffmanTree is used to hold the tree structure for the
 //  HuffmanAlgoirthm class
@@ -33,7 +33,7 @@ private:
         Node(char ch, int f) : c(ch), freq(f), left(nullptr), right(nullptr) {}
     };
 
-    Node *root; // root node
+    Node *root; // root node of the huffmanTree
 
     //------------------------------------------------------------------------
     // clearTreePrivate - Private helper method to clear the tree
@@ -55,7 +55,7 @@ private:
 
 public:
     //------------------------------------------------------------------------
-    // HuffmanTree(char ch, int f) - Constructor 
+    // HuffmanTree(char ch, int f) - Constructor
     // Preconditions: Passed in a character and interger value
     // Postconditions: Huffman tree object created with a Node within obj
     //				   that holds character and frequency
@@ -99,7 +99,7 @@ public:
     char getChar() const;
 
     //------------------------------------------------------------------------
-    // getFreq() - Gets the frequency 
+    // getFreq() - Gets the frequency
     // Preconditions: None
     // Postconditions: returns int frequency from huffmanTree
     int getFreq() const;
@@ -111,7 +111,7 @@ public:
     void setChar(char ch);
 
     //------------------------------------------------------------------------
-    // setFreq(char ch) - Sets the frequency 
+    // setFreq(char ch) - Sets the frequency
     // Preconditions: Passed in value must be a int value
     // Postconditions: Sets value of int frequency within huffmantree
     void setFreq(int f);
@@ -123,7 +123,7 @@ public:
     void traverseCode(string cBook[NUM_LETTERS]);
 
     //------------------------------------------------------------------------
-    // isLeaf - Determines if a node is a leaf node or not 
+    // isLeaf - Determines if a node is a leaf node or not
     // Preconditions: Pass in node
     // Postconditions: return true if node is a leaf node within tree
     bool isLeaf(Node *node);
