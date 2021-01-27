@@ -1,12 +1,17 @@
-// ------------------------------------------------------------------------//
+// -------------------------------------------------------------------
 // Name: Tomas H Woldemichael
-// Date: Jan 21, 2021
+// Date: Jan 27, 2021
 // File Name: HuffmanTree.cpp
 // Title: PROGRAM 2
-// Description:
-//
-//
-// ------------------------------------------------------------------------//
+// -------------------------------------------------------------------
+// HuffmanTree class:
+//	Implements the HuffmanTree class utilizing a struct node to
+//	hold the characters, frequency, left and right child. The Huffman
+//	Tree uses the following methods
+//	     operator</=, getters/setters, clearTree, TraverseCoder, etc
+//  The HuffmanTree is used to hold the tree structure for the
+//  HuffmanAlgoirthm class
+//--------------------------------------------------------------------
 
 #include "HuffmanTree.h"
 #include <iostream>

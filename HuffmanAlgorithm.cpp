@@ -1,12 +1,19 @@
-// ------------------------------------------------------------------------//
+// -------------------------------------------------------------------
 // Name: Tomas H Woldemichael
-// Date: Jan 21, 2021
+// Date: Jan 27, 2021
 // File Name: HuffmanAlgorithm.cpp
 // Title: PROGRAM 2
-// Description:
-//
-//
-// ------------------------------------------------------------------------//
+// -------------------------------------------------------------------
+// HuffmanAlgorithm class:
+//	Implements the Huffman algorithm utilizing a minHeap and HuffmanTree
+//	with the following methods:
+//		getWord, getCode, operator<< (for display)
+//  The HuffmanAlogrithmn gets passed in an array of ints and utilizes 
+//  the huffmanTree and minHeap to encode characters "a-z"
+//  Assumptions:
+//	 Values are only for ASCII characters a-z and have a frequency
+//	 of at least 1
+//--------------------------------------------------------------------
 
 #include "HuffmanAlgorithm.h"
 #include "HuffmanTree.cpp"
