@@ -13,6 +13,10 @@
 
 #include <iostream>
 
+//---------------------------------------------------------------------------------
+// HuffmanAlgorithm - Constructor
+// Preconditions: Passed in an array of frequency's index 0 = a through END
+// Postconditions: Creates huffman tree object based off frequency passed in array
 HuffmanAlgorithm::HuffmanAlgorithm(int (&counts)[NUM_LETTERS])
 {
 
@@ -41,15 +45,22 @@ HuffmanAlgorithm::HuffmanAlgorithm(int (&counts)[NUM_LETTERS])
 
     mainTree = mHeap.deleteMin();
     mainTree->traverseCode(cBook);
-    
 }
 
+//---------------------------------------------------------------------------------
+// ~HuffmanAlgorithm() - Destructor
+// Preconditions: None
+// Postconditions: Clears dynamically allocated memory stored by HuffmanAlgorithm
 HuffmanAlgorithm::~HuffmanAlgorithm()
 {
     delete mainTree;
     mainTree = nullptr;
 }
 
+//---------------------------------------------------------------------------------
+// getWord(string in) - returns the code of a string
+// Preconditions: Takes in a string of words to endcode
+// Postconditions: Returns a that encodes the the string that was passed in
 string HuffmanAlgorithm::getWord(string in)
 {
     string code = "";
@@ -60,6 +71,10 @@ string HuffmanAlgorithm::getWord(string in)
     return code;
 }
 
+//---------------------------------------------------------------------------------
+// getCode - Gets the code for a single letter
+// Preconditions: Takes in a single character
+// Postconditions: Returns the code for the single character passed in
 string HuffmanAlgorithm::getCode(char c)
 {
     for (int i = 0; i < NUM_LETTERS; i++)
@@ -72,6 +87,10 @@ string HuffmanAlgorithm::getCode(char c)
     return "";
 }
 
+//---------------------------------------------------------------------------------
+// operator<< - Prints the HuffmanTree to the console
+// Preconditions: Takes in a HuffmanTree
+// Postconditions: Prints the HuffmanTree characters and binary code transformation
 ostream &operator<<(ostream &output, HuffmanAlgorithm &I)
 {
     char start = 'a';

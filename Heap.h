@@ -21,25 +21,11 @@ template <typename Comparable>
 class Heap
 {
 public:
-    // Provide your own default constructor, copy constructor, operator=, and destructor
-
-    //------------------------------------------------------------------------
-    // Heap - constuctor
-    // Preconditions:
-    //
-    // Postconditions:
-    //
-    Heap()
-    {
-    }
-
-    //------------------------------------------------------------------------
-    // Heap(Comparable **array, int count) - constuctor
-    // Preconditions:
-    //
-    // Postconditions:
-    //
-
+    Heap(){}
+    //---------------------------------------------------------------------------------
+    // Heap(Comparable **array, int count) - constructor
+    // Preconditions: Passed in an array of pointers and the amount of pointers in the array
+    // Postconditions: Stores the object in the array in a minHeap
     Heap(Comparable **array, int count)
     {
         for (int i = 0; i < count; i++)
@@ -50,12 +36,10 @@ public:
         heapify();
     }
 
-    //------------------------------------------------------------------------
-    // Heap(const Heap &org) - copy constuctor
-    // Preconditions:
-    //
-    // Postconditions:
-    //
+    //---------------------------------------------------------------------------------
+    // Heap(const Heap &org) - copy constructor
+    // Preconditions: Passed in a Heap object
+    // Postconditions: Creates a deep copy of minHeap
     Heap(const Heap &org)
     {
         for (int i = 0; i < org.size(); i++)
@@ -66,12 +50,10 @@ public:
         heapify();
     }
 
-    //------------------------------------------------------------------------
-    // ~Heap - destructor
-    // Preconditions:
-    //
-    // Postconditions:
-    //
+    //---------------------------------------------------------------------------------
+    // ~Heap() - destructor
+    // Preconditions: None
+    // Postconditions: Clears all dynamically allocated memory
     ~Heap()
     {
         while (!isEmpty())
@@ -82,12 +64,10 @@ public:
         }
     }
 
-    //------------------------------------------------------------------------
-    // operator= - assigns rhs heap to lhs if not the same
-    // Preconditions:
-    //
-    // Postconditions:
-    //
+    //---------------------------------------------------------------------------------
+    // operator=(const Heap &rhs) - assignment operator
+    // Preconditions: Rhs object must be Heap
+    // Postconditions: Assigns rhs obj to lhs Heap object
     Heap &operator=(const Heap &rhs)
     {
         while (!isEmpty())

@@ -15,7 +15,6 @@
 
 using namespace std;
 
-
 class HuffmanAlgorithm
 {
 
@@ -25,9 +24,33 @@ private:
     string cBook[NUM_LETTERS];
 
 public:
+    //---------------------------------------------------------------------------------
+    // HuffmanAlgorithm - Constructor
+    // Preconditions: Passed in an array of frequency's index 0 = a through END
+    // Postconditions: Creates huffman tree object based off frequency passed in array
     HuffmanAlgorithm(int (&counts)[NUM_LETTERS]);
+
+    //---------------------------------------------------------------------------------
+    // ~HuffmanAlgorithm - Destructor
+    // Preconditions: None
+    // Postconditions: Clears dynamically allocated memory stored by HuffmanAlgorithm
     ~HuffmanAlgorithm();
-    string getWord(string in);                                        //takes in a word to encode assume all lower case ignore non letter
-    friend ostream &operator<<(ostream &output, HuffmanAlgorithm &I); // Output the letter-to-code translation table
+
+    //---------------------------------------------------------------------------------
+    // getWord(string in) - returns the code of a string
+    // Preconditions: Takes in a string of words to endcode
+    // Postconditions: Returns a that encodes the the string that was passed in
+    string getWord(string in);
+
+    //---------------------------------------------------------------------------------
+    // operator<< - Prints the HuffmanTree to the console
+    // Preconditions: Takes in a HuffmanTree
+    // Postconditions: Prints the HuffmanTree characters and binary code transformation
+    friend ostream &operator<<(ostream &output, HuffmanAlgorithm &I);
+
+    //---------------------------------------------------------------------------------
+    // getCode - Gets the code for a single letter
+    // Preconditions: Takes in a single character
+    // Postconditions: Returns the code for the single character passed in
     string getCode(char c);
 };
