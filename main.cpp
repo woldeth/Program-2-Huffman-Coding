@@ -1,7 +1,7 @@
 //------------------------------------------------------------------------
 // HW2.CPP
 // Driver code for testing Huffman class for creating Huffman codes
-// Author:  Clark Olson
+// Author:  Tomas Woldemichael
 //------------------------------------------------------------------------
 // This code tests all of the basic functionality of the Huffman class
 // for CSS 502 HW 2.  It is not meant to exhaustively test the class.
